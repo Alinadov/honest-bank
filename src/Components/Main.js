@@ -94,8 +94,8 @@ handleSubmit = event => {
 
                     <button className="honest-btn honest-btn--grey"><Link to='/account'>Log in</Link></button>
 
-                  <br />
-                    <button className="honest-btn honest-btn--grey" onClick={this.deleteUser}>Delete User</button>
+                  {/*<br />*/}
+                    {/*<button className="honest-btn honest-btn--grey" onClick={this.deleteUser}>Delete User</button>*/}
 
                 </div>
             </div>

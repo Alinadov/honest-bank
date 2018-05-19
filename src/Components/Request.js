@@ -7,7 +7,7 @@ export default class Requests extends Component {
             <Request
                 url='https://apihonestbank.herokuapp.com/users/2'
                 method='delete'
-                headers = {'Content-Type': 'application/json', 'Cache-Control': 'no-cache' }
+                // headers = {'Content-Type': 'application/json', 'Cache-Control': 'no-cache' }
                 accept='application/json'
                 verbose={true}
             >
