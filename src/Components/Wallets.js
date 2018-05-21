@@ -45,9 +45,9 @@ export default class Wallets extends React.Component {
                         </p>
                     </div>
                     <div className="wallets__container">
-                        <Card/>
-                        <Card/>
-                        <Card/>
+                        <Card idCard="5" />
+                        <Card idCard="2"/>
+                        <Card idCard="1"/>
                     </div>
                 </div>
             </div>

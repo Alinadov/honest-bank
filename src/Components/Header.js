@@ -1,7 +1,8 @@
 import React from 'react';
-import logo from '../pict/logo.png';
+import logo_honestbank from '../pict/logo_honestbank.svg';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import {urlServer} from "../_constants";
 
 
 export default class Header extends React.Component {
@@ -17,11 +18,10 @@ export default class Header extends React.Component {
 
 
     componentDidMount() {
-        const url = 'https://apihonestbank.herokuapp.com/',
-              db =  'accounts/',
-              id = '2';
+        const db =  '/accounts',
+              id = '/7';
 
-        axios.get(url+db+id)
+        axios.get(urlServer+db+id)
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -41,32 +41,37 @@ export default class Header extends React.Component {
                 <div className="container">
                     <div className='header__logo'>
                         <img
-                            src={logo}
+                            src={logo_honestbank}
                             alt="logo"
                             className='header__logo-pict' />
-                    </div>
-
-                    <div className="header__numb_account">
-                        <p className="header__numb_account-text">
-                            Your account
-                        </p>
-                        <p className="header__numb_account-number">#
-                            {existNumber
-                            ? this.state.numb_account
-                            : loading}
-                        </p>
                     </div>
 
                     <div className="header__howdy">
                          <span className="header__howdy-text">Howdy, <span className="header__howdy-user_name">
                                  {existName
-                                 ? this.state.name_user
-                                 : loading}
+                                     ? this.state.name_user+'!'
+                                     : loading}
                              </span>
                          </span>
+
                     </div>
 
-                     <button className="honest-btn honest-btn--grey"><Link to='/'>Logout</Link></button>
+                    <div className="header__numb">
+                        <div className="header__numb_account">
+                            <p className="header__numb_account-text">
+                                Your account
+                            </p>
+                            <p className="header__numb_account-number">#
+                                {existNumber
+                                ? this.state.numb_account
+                                : loading}
+                            </p>
+                        </div>
+                        <button className="honest-btn honest-btn--logout"><Link to='/'>Logout</Link></button>
+
+                    </div>
+
+
                 </div>
             </div>
         )

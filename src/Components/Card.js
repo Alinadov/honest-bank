@@ -1,11 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 import logo_visa from '../pict/logo_visa.png';
+import {urlServer} from "../_constants";
+
 
 
 
 
 export default class Card extends React.Component {
+
+    // static propTypes = {
+    //     idCard: React.PropTypes.string.isRequired
+    // }
 
     constructor() {
         super();
@@ -14,19 +20,20 @@ export default class Card extends React.Component {
             card_name: '',
             card_number: '',
             card_expiration: '',
-            card_blocked: '',
+            card_blocked: ''
         }
     }
 
 
     componentDidMount() {
 
-        const url = 'https://apihonestbank.herokuapp.com/',
-            db =  'wallets/',
-            id = '2';
+        const  db =  '/wallets/',
+            // id = '5';
+        id = this.props.idCard;
 
 
-        axios.get(url+db+id)
+
+        axios.get(urlServer+db+id)
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -43,12 +50,13 @@ export default class Card extends React.Component {
             existCardName = !!this.state.card_name,
             existCardNumber = !!this.state.card_number,
             existCardExpiration = !!this.state.card_expiration,
-            existCardBlocked = !!this.state.card_blocked;
+            existCardBlocked = this.state.card_blocked;
         // if (this.state.user_currency == 'USD') {this.state.user_currency ='$'}
 
         return (
             <div className='card'>
                 <div className='card_logo'>
+
                     <img alt="visa"
                          src={logo_visa}
                          className='card_logo-pict' />
@@ -69,9 +77,7 @@ export default class Card extends React.Component {
                         : loading}
                 </p>
                 <p className="card__status">
-                    {existCardBlocked
-                        ? this.state.card_blocked
-                        : loading}
+                   {existCardBlocked === false ? 'active' : 'blocked'}
                 </p>
             </div>
         )

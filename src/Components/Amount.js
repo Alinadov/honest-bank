@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios'
+import {urlServer} from "../_constants";
 
 
 export default class Amount extends React.Component {
@@ -16,12 +17,11 @@ export default class Amount extends React.Component {
 
     componentDidMount() {
 
-        const url = 'https://apihonestbank.herokuapp.com/',
-            db =  'accounts/',
-            id = '2';
+        const db =  '/accounts',
+              id = '/7';
 
 
-        axios.get(url+db+id)
+        axios.get(urlServer+db+id)
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -47,7 +47,7 @@ export default class Amount extends React.Component {
                     <br/>
                     <p className="amount__money-number">
                         {existAmount
-                        ? this.state.user_amount
+                        ? (this.state.user_amount/100)
                         : loading}
                     </p>
                     <br/>

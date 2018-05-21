@@ -12,15 +12,12 @@ export default class Account extends React.Component {
 
                     <Header/>
 
-                    <hr className="line line--green"/>
 
                     <Amount/>
 
-                    <hr className="line line--green"/>
 
                     <Wallets/>
 
-                    <hr className="line line--green"/>
 
 
                 </div>

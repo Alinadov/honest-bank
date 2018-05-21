@@ -58,6 +58,21 @@ a:visited {
 }
 
 
+.honest-btn--logout {
+    height: 38px;
+    text-transform: none;
+    background-color: var(--main-bg-color);
+  border: .5px solid var(--main-green-color);
+
+}
+
+.honest-btn--logout:hover {
+  background-color: var(--main-green-color);
+  color: #222222;
+  border: .5px solid var(--main-green-color);
+}
+
+
 
 .main__login {
   /*height: 50px;*/
