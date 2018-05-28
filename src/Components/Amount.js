@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios'
 import {urlServer} from "../_constants";
+import {loading} from "../_constants/loading";
+
 
 
 export default class Amount extends React.Component {
@@ -18,7 +20,7 @@ export default class Amount extends React.Component {
     componentDidMount() {
 
         const db =  '/accounts',
-              id = '/7';
+              id = '/10';
 
 
         axios.get(urlServer+db+id)
@@ -32,8 +34,7 @@ export default class Amount extends React.Component {
     }
 
     render() {
-        const loading = <span className='loading'>...</span>,
-            existAmount = !!this.state.user_amount,
+        const existAmount = !!this.state.user_amount,
             existCurrency = !!this.state.user_currency;
         // if (this.state.user_currency == 'USD') {this.state.user_currency ='$'}
 

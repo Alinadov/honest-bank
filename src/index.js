@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Account from './Components/Account.js'
-import Main from './Components/Main.js'
+import Login from './Components/Login.js'
+import Registration from './Components/Registration.js'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import './style/normalize.css';
 import './style/index.css';
@@ -30,7 +31,8 @@ class App extends React.Component {
 ReactDOM.render(
     <Router>
         <div>
-        <Route exact path={"/"} component={Main} />
+        <Route exact path={"/"} component={Login} />
+        <Route path={"/registration"} component={Registration} />
         <Route path={"/account"} component={Account} />
         <Route path={"/default"} component={App} />
         <Route path={"/requests"} component={Requests} />

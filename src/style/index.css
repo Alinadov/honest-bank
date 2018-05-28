@@ -15,7 +15,7 @@
 }
 
 
-html, body {
+html, body, pre {
   font-family: var(--font-serif);
   background-color: var(--main-bg-color);
 }
@@ -95,6 +95,10 @@ html, body {
   font-family: var(--font-sans-serif);
   font-weight: 600;
   border-right: 1px solid var(--main-green-color);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .header__numb_account-text {
@@ -103,6 +107,8 @@ html, body {
 }
 
 .header__howdy {
+  display: flex;
+  justify-content: center;
   /*align-self: center;*/
 }
 
@@ -112,6 +118,7 @@ html, body {
 }
 
 .header__howdy-user_name {
+  font-size: 30px;
   color: black;
 }
 
@@ -179,8 +186,16 @@ html, body {
   padding: 50px 0;
   margin: 20px;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card_logo-pict {
   width: 50px;
+}
+
+.card__name, .card__number, .card__exp {
+  display: flex;
+  justify-content: center;
 }

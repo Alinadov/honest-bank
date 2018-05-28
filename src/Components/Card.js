@@ -2,9 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import logo_visa from '../pict/logo_visa.png';
 import {urlServer} from "../_constants";
-
-
-
+import {loading} from "../_constants/loading";
 
 
 export default class Card extends React.Component {
@@ -46,8 +44,7 @@ export default class Card extends React.Component {
     }
 
     render() {
-        const loading = <span className='loading'>...</span>,
-            existCardName = !!this.state.card_name,
+        const existCardName = !!this.state.card_name,
             existCardNumber = !!this.state.card_number,
             existCardExpiration = !!this.state.card_expiration,
             existCardBlocked = this.state.card_blocked;
@@ -56,29 +53,28 @@ export default class Card extends React.Component {
         return (
             <div className='card'>
                 <div className='card_logo'>
-
                     <img alt="visa"
                          src={logo_visa}
                          className='card_logo-pict' />
                 </div>
-                <p className="card__name">
+                <div className="card__name">
                     {existCardName
                         ? this.state.card_name
                         : loading}
-                </p>
-                <p className="card__number">
+                </div>
+                <div className="card__number">
                     {existCardNumber
                         ? this.state.card_number
                         : loading}
-                </p>
-                <p className="card__exp">
+                </div>
+                <div className="card__exp">
                     {existCardExpiration
                         ? this.state.card_expiration
                         : loading}
-                </p>
-                <p className="card__status">
+                </div>
+                <div className="card__status">
                    {existCardBlocked === false ? 'active' : 'blocked'}
-                </p>
+                </div>
             </div>
         )
     };

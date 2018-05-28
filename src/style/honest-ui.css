@@ -93,3 +93,19 @@ a:visited {
 .main__login-input:last-child {
   margin-bottom: 17px;
 }
+
+.loading2 {
+  width: 15px;
+  height: 15px;
+  border: 5px solid var(--main-green-color);  /* полупрозрачный цвет ставить не стоит, появляются ненужные линии */
+  border-top-color: rgb(0,255,0);
+  border-radius: 100%;
+  -webkit-animation: loading2 linear .7s infinite;
+  animation: loading2 linear .7s infinite;
+}
+@-webkit-keyframes loading2 {
+  100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes loading2 {
+  100% {transform: rotate(360deg);}
+}

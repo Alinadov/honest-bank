@@ -5,10 +5,10 @@ import {Link} from 'react-router-dom';
 
 
 
-export default class Main extends React.Component {
+export default class Login extends React.Component {
     state = {
         phone: ''
-        // password: '',
+        // password: ''
         // role: ''
     }
 
@@ -25,8 +25,8 @@ handleSubmit = event => {
         event.preventDefault();
 
         const user = {
-            phone: this.state.phone
-            // password: this.state.password,
+            phone: this.state.phone,
+            password: this.state.password
 
         };
 
@@ -44,22 +44,20 @@ handleSubmit = event => {
                 <div className="main__container">
 
                     <div className='main__logo'>
-
-
-
                         <img className="main__logo-pict"
                             src={logo_honestbank}
                             alt="logo"/>
                     </div>
+
                     <form className="main__login" onSubmit={this.handleSubmit}>
                         <label>
                             <input className="main__login-input" type="text" name="phone" placeholder="phone" onChange={this.handleChange} /><br/>
-                            <input className="main__login-input" type="text" name="password" placeholder="password" onChange={this.handleChange} /><br/>
+                            <input className="main__login-input" type="text" name="password" placeholder="password"  onChange={this.handleChange} /><br/>
                             {/*<input className="main__login-input" type="text" name="role" placeholder="role" onChange={this.handleChange} /><br/>*/}
 
                         </label>
                         <br/>
-                        <button className="honest-btn honest-btn--grey" type="submit">Register</button>
+                        <button className="honest-btn honest-btn--grey" type="submit"><Link to='/registration'>Register</Link></button>
                     </form>
 
                     <div className="main__or"> or </div>
