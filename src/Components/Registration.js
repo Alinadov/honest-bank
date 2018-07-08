@@ -72,44 +72,10 @@ export default class Registration extends React.Component {
                                 <button className="honest-btn honest-btn--grey" type="submit">Register</button>
                             </form>
 
-                            <button className="honest-btn honest-btn--grey"><Link to='/'>Cancel</Link></button>
+                            <button className="honest-btn honest-btn--grey"><Link to='/'>Log in</Link></button>
 
                         </div>
                     </div>
         );
     }
-
-    // render() {
-    //     return (
-    //         <div className="main">
-    //             <div className="main__container">
-    //
-    //                 <div className='main__logo'>
-    //                     <img className="main__logo-pict"
-    //                         src={logo_honestbank}
-    //                         alt="logo"/>
-    //                 </div>
-    //
-    //                 <form className="main__login" onSubmit={this.handleSubmit}>
-    //                     <label>
-    //                         <input className="main__login-input" type="text" name="phone" placeholder="phone" onChange={this.handleChange} /><br/>
-    //                         <input className="main__login-input" type="text" name="password" placeholder="password"  onChange={this.handleChange} /><br/>
-    //                         {/*<input className="main__login-input" type="text" name="role" placeholder="role" onChange={this.handleChange} /><br/>*/}
-    //
-    //                     </label>
-    //                     <br/>
-    //                     <button className="honest-btn honest-btn--grey" type="submit">Register</button>
-    //                 </form>
-    //
-    //                 <div className="main__or"> or </div>
-    //
-    //                 <button className="honest-btn honest-btn--grey"><Link to='/'>Cancel</Link></button>
-    //
-    //                 {/*<br />*/}
-    //                 {/*<button className="honest-btn honest-btn--grey" onClick={this.sendAccount}>Send Account</button>*/}
-    //
-    //             </div>
-    //         </div>
-    //         )
-    //         }
 }

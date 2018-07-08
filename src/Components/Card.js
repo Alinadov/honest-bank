@@ -11,44 +11,54 @@ export default class Card extends React.Component {
     //     idCard: React.PropTypes.string.isRequired
     // }
 
-    constructor() {
-        super();
-
-        this.state = {
-            card_name: '',
-            card_number: '',
-            card_expiration: '',
-            card_blocked: ''
-        }
-    }
-
-
-    componentDidMount() {
-
-        const  db =  '/wallets/',
-            // id = '5';
-        id = this.props.idCard;
+    // constructor() {
+    //     super();
+    //
+    //     this.state = {
+    //         card_name: '',
+    //         card_number: '',
+    //         card_expiration: '',
+    //         card_blocked: ''
+    //     }
+    // }
 
 
-
-        axios.get(urlServer+db+id)
-            .then(res => {
-                console.log(res);
-                this.setState({
-                    card_name: res.data.name,
-                    card_number: res.data.number,
-                    card_expiration: res.data.expiration,
-                    card_blocked: res.data.blocked
-                })
-            });
-    }
+    // componentWillMount() {
+    //
+    //     const  db =  '/wallets/',
+    //         // id = localStorage.getItem('userId');
+    //
+    //         // id = '2';
+    //     id = this.props.idCard;
+    //     // this.props.idCard doesn't work...
+    //
+    //     console.log('number of card ->', this.props.idCard);
+    //
+    //
+    //     //убрать +3
+    //
+    //
+    //
+    //     axios.get(urlServer+db+id)
+    //         .then(res => {
+    //             console.log(res);
+    //             this.setState({
+    //                 card_name: res.data.name,
+    //                 card_number: res.data.number,
+    //                 card_expiration: res.data.expiration,
+    //                 card_blocked: res.data.blocked
+    //             })
+    //         });
+    // }
 
     render() {
-        const existCardName = !!this.state.card_name,
-            existCardNumber = !!this.state.card_number,
-            existCardExpiration = !!this.state.card_expiration,
-            existCardBlocked = this.state.card_blocked;
+        // const existCardName = !!this.state.card_name,
+        //     existCardNumber = !!this.state.card_number,
+        //     existCardExpiration = !!this.state.card_expiration,
+           const existCardBlocked = this.props.statusCard;
         // if (this.state.user_currency == 'USD') {this.state.user_currency ='$'}
+
+
 
         return (
             <div className='card'>
@@ -58,19 +68,15 @@ export default class Card extends React.Component {
                          className='card_logo-pict' />
                 </div>
                 <div className="card__name">
-                    {existCardName
-                        ? this.state.card_name
-                        : loading}
+                    {this.props.nameCard}
                 </div>
                 <div className="card__number">
-                    {existCardNumber
-                        ? this.state.card_number
-                        : loading}
+                    {this.props.numberCard}
+
                 </div>
                 <div className="card__exp">
-                    {existCardExpiration
-                        ? this.state.card_expiration
-                        : loading}
+                    {this.props.expirationCard}
+
                 </div>
                 <div className="card__status">
                    {existCardBlocked === false ? 'active' : 'blocked'}

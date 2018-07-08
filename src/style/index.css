@@ -122,6 +122,45 @@ html, body, pre {
   color: black;
 }
 
+.accounts {
+  height: auto;
+  border-bottom: 2px solid var(--main-green-color);
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+}
+
+.accounts__header {
+  text-align: center;
+  font-family: var(--font-sans-serif);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.accounts__header-text {
+  color: var(--main-green-color);
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.accounts__container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.accounts__list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accounts__list-links {
+  border: 1px solid var(--main-green-color);
+
+}
+
 .amount {
   height: 210px;
   border-bottom: 2px solid var(--main-green-color);
