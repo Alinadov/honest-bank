@@ -32,7 +32,7 @@ class User extends React.Component {
 
     render()
         {
-            console.log('render User start');
+            console.log('render_User start');
             console.log(this.state.user_currentAcc);
 
             return (
@@ -46,11 +46,13 @@ class User extends React.Component {
                     <Amount accAmount={this.state.user_amount}
                             accCurrency={this.state.user_currency}/>
 
-                    {/*<Wallets userWallets={this.state.user_currentAcc}/>*/}
+                    {/*<Wallets currentAcc={this.state.user_currentAcc}/>*/}
 
                     <Wallets userWallets={this.state.user_wallets}/>
+                    {/*<Wallets/>*/}
 
-                    {console.log('render_User')}
+
+                    {console.log('render_User finish')}
 
                 </div>
             )
@@ -81,7 +83,6 @@ class User extends React.Component {
                 console.log('ajax_User for Header');
                 console.log(res.data);
 
-
                 // this.props.dispatch({
                 //     type: 'ON_SUBMIT',
                 //     payload: {id, number};
@@ -96,6 +97,17 @@ class User extends React.Component {
                 user_currentAcc: res.data[0].id,
                 user_accounts: res.data
                 })
+
+                let id = res.data[0].id,
+                db =  '/wallets/account/';
+
+                axios.get(urlServer+db+id)
+                    .then(res => {
+                        console.log('ajax_User for Wallets', res.data);
+                        this.setState({
+                            user_wallets: res.data
+                        });
+                    });
             });
 
         // let user_accounts = localStorage.getItem('user_accounts');

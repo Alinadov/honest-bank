@@ -17,10 +17,12 @@ class Wallets extends React.Component {
     //
     //     this.state = {
     //         user_wallets: [],
-    //         account_id: localStorage.getItem('current account')
+    //         flag: 'false'
+    //         // account_id: localStorage.getItem('current account')
     //     };
     //
-    //     console.log('constructor_Wallets', 'account_id', this.state.account_id)
+    //     // console.log('constructor_Wallets', 'account_id', this.state.account_id)
+    //     console.log('constructor_Wallets')
     // }
 
 
@@ -48,9 +50,11 @@ class Wallets extends React.Component {
         // console.log('state ->', cardId, typeof(cardId) );
 
         const cards = this.props.userWallets;
-
-
         const existCards = !!this.props.userWallets;
+
+        // const cards = this.state.user_wallets;
+        //
+        // const existCards = !!this.state.user_wallets;
 
 
 
@@ -77,12 +81,14 @@ class Wallets extends React.Component {
 
     // componentDidMount() {
     //
-    //     console.log('didmount_Wallets_start', 'account_id ->', this.state.account_id);
+    //     // console.log('didmount_Wallets_start', 'account_id ->', this.state.account_id);
+    //     console.log('didmount_Wallets_start');
     //
     //
     //     const db =  '/wallets/account/',
-    //         // id = this.props.account.id;
-    //         id = this.state.account_id;
+    //         id = this.props.currentAcc;
+    //         // id = this.state.account_id;
+    //         // id = '8';
     //     // id = localStorage.getItem('current account');
     //     // console.log(this.props.account);
     //
@@ -90,18 +96,24 @@ class Wallets extends React.Component {
     //     console.log('ajax Wallets start');
     //
     //
-    //
+    //     if (id) {
     //     axios.get(urlServer+db+id)
     //         .then(res => {
     //             console.log('ajax Wallets finish ->', res.data);
     //             this.setState({
     //                 user_wallets: res.data
     //             });
-    //
-    //             console.log('didmount_Wallets_finish')
-    //
     //             // console.log('number of card ->', this.state.user_wallets);
     //         });
+    //     } else {
+    //         // this.setState(
+    //         //     {flag: 'false'}
+    //         // );
+    //         console.log('ajax Wallet false')
+    //     }
+    //
+    //     console.log('didmount_Wallets_finish')
+    //
     // }
 
 }
