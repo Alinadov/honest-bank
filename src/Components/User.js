@@ -62,6 +62,11 @@ class User extends React.Component {
         if (!storage.existInStorage()) {
             this.props.history.push('/');
         }
+        let userCheck = getDataFromToken();
+
+        if (userCheck.role === 'ADMIN') {
+            this.props.history.push('/admin');
+        };
 
         setRequestHeaders();
 

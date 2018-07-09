@@ -58,11 +58,11 @@ export default class Login extends React.Component {
                     switch(userCheck.role) {
                         case 'ADMIN':
                             this.props.history.push('/admin');
-                            localStorage.setItem('current_route', '/admin');
+                            // localStorage.setItem('cr', 'a');
                             break;
                         case 'USER':
                             this.props.history.push('/user');
-                            localStorage.setItem('current_route', '/user');
+                            // localStorage.setItem('cr', 'u');
                             break;
                         default:
                             this.props.history.push('/');
@@ -148,8 +148,22 @@ export default class Login extends React.Component {
     componentDidMount() {
         if (storage.existInStorage()) {
             // storage.deleteUser();
-            let cr = localStorage.getItem('current_route');
-            this.props.history.push(cr);
+
+            let userCheck = getDataFromToken();
+            switch(userCheck.role) {
+                case 'ADMIN':
+                    this.props.history.push('/admin');
+                    // localStorage.setItem('cr', 'a');
+                    break;
+                case 'USER':
+                    this.props.history.push('/user');
+                    // localStorage.setItem('cr', 'u');
+                    break;
+                default:
+                    this.props.history.push('/');
+            }
+            // let cr = localStorage.getItem('cr');
+            // this.props.history.push(cr);
         }
 
         console.log('didMount_Login')

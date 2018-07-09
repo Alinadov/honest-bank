@@ -4,6 +4,7 @@ import {urlServer} from "../_constants";
 import axios from "axios/index";
 import storage from "../storage/storage";
 import {setRequestHeaders} from "../_requests";
+import {getDataFromToken} from "../_functions";
 
 export default class Admin extends React.Component {
     constructor() {
@@ -15,7 +16,7 @@ export default class Admin extends React.Component {
             flag: ''
         };
 
-        this.setState = this.setState.bind(this);
+        // this.setState = this.setState.bind(this);
     }
 
 
@@ -25,8 +26,10 @@ export default class Admin extends React.Component {
             this.props.history.push('/');
         };
 
-        if (localStorage.getItem('current_route') === '/account') {
-            this.props.history.push('/account');
+        let userCheck = getDataFromToken();
+
+        if (userCheck.role === 'USER') {
+            this.props.history.push('/user');
         };
 
         setRequestHeaders();
@@ -105,7 +108,7 @@ export default class Admin extends React.Component {
                 .then(res => {
                     console.log(res);
                 });
-            // Admin.setState({
+            // this.setState({
             //     flag: 'upd'
             // });
 
@@ -160,7 +163,6 @@ export default class Admin extends React.Component {
                     <div className="admin__container">
 
                         <ul>
-                            {/*{console.log(this.state.user_account)}*/}
                             {accounts.map(this.renderAccounts)}
                         </ul>
                     </div>
